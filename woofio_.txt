@@ -1,0 +1,2538 @@
+woofio_admin1@gmail.com
+Woofio_admin1
+
+woofio_user1@gmail.com
+Woofio_user1
+
+
+woofio_admin1@gmail.com
+Woofio_admin1
+
+woofio_user1@gmail.com
+Woofio_user1
+
+
+
+
+<x-laravel-ui-adminlte::adminlte-layout>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <body class="hold-transition register-page">
+
+    <div class="register-box">
+
+        <div class="register-logo">
+            <img src="/images/bg/petlogo.png" width="100">
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Formulario de inscripción</p>
+
+                <form method="post" action="{{ route('register.user') }}"  enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="qr_id" id="qr_id" value="{{ Request::input('qr_id') }}">
+
+
+                    <div class="input-group mb-3">
+                        <input type="text" name="firstname" id="firstname"
+                               class="form-control @error('firstname') is-invalid @enderror" value=""
+                               placeholder="Nombre">
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-user"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" name="lastname" id="lastname"
+                               class="form-control @error('lastname') is-invalid @enderror" value=""
+                               placeholder="Apellido">
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-user"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" name="username" id="username"
+                               class="form-control @error('username') is-invalid @enderror" value=""
+                               placeholder="Usuario">
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-user"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" value="{{ old('email') }}"
+                               class="form-control @error('email') is-invalid @enderror" placeholder="Correo">
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-envelope"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="password" name="password"
+                               class="form-control @error('password') is-invalid @enderror" placeholder="Contraseña">
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="password" name="password_confirmation" class="form-control"
+                               placeholder="Reescribe tu Contraseña">
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control @error('gender') is-invalid @enderror" name="gender">
+                            <option value="male">Masculino</option>
+                            <option value="female">Femenino</option>
+                            <option value="other">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="tel" name="mobile" class="form-control @error('mobile') is-invalid @enderror" id="mobile" placeholder="Número de teléfono">
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-phone"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control @error('state') is-invalid @enderror" name="state" id="State">
+                            <option value="" disabled selected> --- Seleccionar Estado --- </option>
+                            <option value="Aguascalientes">Aguascalientes</option>
+                            <option value="Baja California">Baja California</option>
+                            <option value="Baja California Sur">Baja California Sur</option>
+                            <option value="Campeche">Campeche</option>
+                            <option value="Chiapas">Chiapas</option>
+                            <option value="Chihuahua">Chihuahua</option>
+                            <option value="Ciudad de México">Ciudad de México</option>
+                            <option value="Coahuila">Coahuila</option>
+                            <option value="Colima">Colima</option>
+                            <option value="Durango">Durango</option>
+                            <option value="Estado de México">Estado de México</option>
+                            <option value="Guanajuato">Guanajuato</option>
+                            <option value="Guerrero">Guerrero</option>
+                            <option value="Hidalgo">Hidalgo</option>
+                            <option value="Jalisco">Jalisco</option>
+                            <option value="Michoacán">Michoacán</option>
+                            <option value="Morelos">Morelos</option>
+                            <option value="Nayarit">Nayarit</option>
+                            <option value="Nuevo León">Nuevo León</option>
+                            <option value="Querétaro">Querétaro</option>
+                            <option value="Quintana Roo">Quintana Roo</option>
+                            <option value="San Luis Potosí">San Luis Potosí</option>
+                            <option value="Sinaloa">Sinaloa</option>
+                            <option value="Sonora">Sonora</option>
+                            <option value="Tabasco">Tabasco</option>
+                            <option value="Tamaulipas">Tamaulipas</option>
+                            <option value="Tlaxcala">Tlaxcala</option>
+                            <option value="Veracruz">Veracruz</option>
+                            <option value="Yucatán">Yucatán</option>
+                            <option value="Zacatecas">Zacatecas</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control @error('state') is-invalid @enderror" name="city" id="City">
+                            <option value="" disabled selected> --- Seleccionar Ciudad ---</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group mb-3">
+                          <textarea name="address" class="form-control @error('address') is-invalid @enderror" placeholder="Dirección"></textarea>
+                          <div class="input-group-append">
+                              <div class="input-group-text"><span class="fas fa-home"></span></div>
+                          </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" id="submitButton" class="btn btn-primary btn-block">Register</button>
+                        </div>
+
+                        <div class="col-12 d-flex justify-content-end pt-2">
+                            <a href="{{ route('login') }}">ya tengo una cuenta</a>
+                        </div>
+                    </div>
+
+                </form>
+
+
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+
+        <!-- /.form-box -->
+    </div>
+    <!-- /.register-box -->
+
+    <script src="/system/public/location.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var states = Locations;
+            function populateCities(state) {
+                var citiesDropdown = $("#City");
+                citiesDropdown.empty();
+
+                var selectedState = states.find(function (s) {
+                    return s.state === state;
+                });
+
+                if (selectedState) {
+                    selectedState.cities.forEach(function (city) {
+                        citiesDropdown.append('<option value="' + city + '">' + city + '</option>');
+                    });
+                }
+            }
+
+            $("#State").change(function () {
+                var selectedState = $(this).val();
+                populateCities(selectedState);
+            });
+        });
+    </script>
+    </body>
+</x-laravel-ui-adminlte::adminlte-layout>
+
+
+
+
+
+
+
+
+
+
+
+
+var Locations = [
+    {
+        "state": "Aguascalientes",
+        "state": "maxic",
+        "cities": [
+            "Aguascalienes",
+            "Asientos",
+            "Calvillo",
+            "Cosío",
+            "El Llano",
+            "Jesús María",
+            "Pabellón de Arteaga",
+            "Rincón de Romos",
+            "San Francisco de los Romo",
+            "San José de Gracia",
+            "Tepezalá"
+        ]
+    },
+    {
+        "state": "Baja California",
+        "cities": [
+            "Ensenada",
+            "Mexicali",
+            "Playas de Rosarito",
+            "Tecate",
+            "Tijuana"
+        ]
+    },
+    {
+        "state": "Baja California Sur",
+        "cities": [
+            "Comundu",
+            "La Paz",
+            "Loreto",
+            "Los Cabos",
+            "Mulege"
+        ]
+    },
+    {
+        "state": "Campeche",
+        "cities": [
+            "Calakmul",
+            "Calkini",
+            "Campeche",
+            "Candelaria",
+            "Carmen",
+            "Champoton",
+            "Escarcega",
+            "Hecelchakan",
+            "Hopelchen",
+            "Palizada",
+            "Tenabo"
+        ]
+    },
+    {
+        "state": "Chiapas",
+        "cities": [
+            "Acacoyagua",
+            "Acala",
+            "Acapetahua",
+            "Aldama",
+            "Altamirano",
+            "Amatán",
+            "Amatenango de la Frontera",
+            "Amatenango del Valle",
+            "Angel Albino Corzo",
+            "Arriaga",
+            "Bejucal de Ocampo",
+            "Bella Vista",
+            "Benemérito de las Américas",
+            "Berriozábal",
+            "Bochil",
+            "Cacahoatán",
+            "Catazajá",
+            "Chalchihuitán",
+            "Chamula",
+            "Chanal",
+            "Chapultenango",
+            "Chenalhó",
+            "Chiapa de Corzo",
+            "Chiapilla",
+            "Chicoasén",
+            "Chicomuselo",
+            "Chilón",
+            "Cintalapa",
+            "Coapilla",
+            "Comitán de Domínguez",
+            "Copainalá",
+            "El Bosque",
+            "El Porvenir",
+            "Escuintla",
+            "Francisco León",
+            "Frontera Comalapa",
+            "Frontera Hidalgo",
+            "Huehuetán",
+            "Huitiupán",
+            "Huixtán",
+            "Huixtla",
+            "Ixhuatán",
+            "Ixtacomitán",
+            "Ixtapa",
+            "Ixtapangajoya",
+            "Jiquipilas",
+            "Jitotoló",
+            "Juárez",
+            "La Concordia",
+            "La Grandeza",
+            "La Independencia",
+            "La Libertad",
+            "La Trinitaria",
+            "Larráinzar",
+            "Las Margaritas",
+            "Las Rosas",
+            "Mapastepec",
+            "Maravilla Tenejapa",
+            "Marqués de Comillas",
+            "Mazapa de Madero",
+            "Mazatán",
+            "Metapa de Domínguez",
+            "Mitontic",
+            "Montecristo de Guerrero",
+            "Motozintla",
+            "Nicolás Ruíz",
+            "Ocosingo",
+            "Ocotepec",
+            "Ocozocoautla de Espinosa",
+            "Ostuacán",
+            "Osumacinta",
+            "Oxchuc",
+            "Palenque",
+            "Pantelhó",
+            "Pantepec",
+            "Pichucalco",
+            "Pijijiapan",
+            "Pueblo Nuevo Solistahuacán",
+            "Rayón",
+            "Reforma",
+            "Sabanilla",
+            "Salto de Agua",
+            "San Andrés Duraznal",
+            "San Cristóbal de las Casas",
+            "San Fernando",
+            "San Juan Cancuc",
+            "San Lucas",
+            "Santiago el Pinar",
+            "Siltepec",
+            "Simojovel",
+            "Sitalá",
+            "Socoltenango",
+            "Solosuchiapa",
+            "Soyaló",
+            "Suchiapa",
+            "Suchiate",
+            "Sunuapa",
+            "Tapachula",
+            "Tapalapa",
+            "Tapilula",
+            "Tecpatán",
+            "Tenejapa",
+            "Teopisca",
+            "Tila",
+            "Tonalá",
+            "Totolapa",
+            "Tumbalá",
+            "Tuxtla Chico",
+            "Tuxtla Gutiérrez",
+            "Tuzantán",
+            "Tzimol",
+            "Unión Juárez",
+            "Venustiano Carranza",
+            "Villa Comaltitlán",
+            "Villa Corzo",
+            "Villaflores",
+            "Yajalón",
+            "Zinacantán"
+        ]
+    },
+    {
+        "state": "Chihuahua",
+        "cities": [
+            "Ahumada",
+            "Aldama",
+            "Allende",
+            "Aquiles Serdán",
+            "Ascensión",
+            "Bachíniva",
+            "Balleza",
+            "Batopilas",
+            "Bocoyna",
+            "Buenaventura",
+            "Camargo",
+            "Carichí",
+            "Casas Grandes",
+            "Chihuahua",
+            "Chínipas",
+            "Coronado",
+            "Coyame del Sotol",
+            "Cuauhtémoc",
+            "Cusihuiriachi",
+            "Delicias",
+            "Dr. Belisario Domínguez",
+            "El Tule",
+            "Galeana",
+            "Gómez Farías",
+            "Gran Morelos",
+            "Guachochi",
+            "Guadalupe",
+            "Guadalupe y Calvo",
+            "Guazapares",
+            "Guerrero",
+            "Hidalgo del Parral",
+            "Huejotitán",
+            "Ignacio Zaragoza",
+            "Janos",
+            "Jiménez",
+            "Juárez",
+            "Julimes",
+            "La Cruz",
+            "López",
+            "Madera",
+            "Maguarichi",
+            "Manuel Benavides",
+            "Matachí",
+            "Matamoros",
+            "Meoqui",
+            "Morelos",
+            "Moris",
+            "Namiquipa",
+            "Nonoava",
+            "Nuevo Casas Grandes",
+            "Ocampo",
+            "Ojinaga",
+            "Praxedis G. Guerrero",
+            "Riva Palacio",
+            "Rosales",
+            "Rosario",
+            "San Francisco de Boria",
+            "San Francisco de Conchos",
+            "San Francisco del Oro",
+            "Santa Bárbara",
+            "Santa Isabel",
+            "Satevó",
+            "Saucillo",
+            "Temósachic",
+            "Urique",
+            "Uruachi",
+            "Valle de Zaragoza"
+        ]
+    },
+    {
+        "state": "Ciudad de México",
+        "cities": [
+            "Álvaro Obregón",
+            "Azcapotzalco",
+            "Benito Juárez",
+            "Coyoacán",
+            "Cuajimalpa de Morelos",
+            "Cuauhtémoc",
+            "Gustavo A. Madero",
+            "Iztacalco",
+            "Iztapalapa",
+            "La Magdalena Contreras",
+            "Miguel Hidalgo",
+            "Milpa Alta",
+            "Tláhuac",
+            "Tlalpan",
+            "Venustiano Carranza",
+            "Xochimilco"
+        ]
+    },
+    {
+        "state": "Coahuila",
+        "cities": [
+            "Abasolo",
+            "Acuña",
+            "Allende",
+            "Arteaga",
+            "Candela",
+            "Castaños",
+            "Cuatrociénegas",
+            "Escobedo",
+            "Francisco I. Madero",
+            "Frontera",
+            "General Cepeda",
+            "Guerrero",
+            "Hidalgo",
+            "Jiménez",
+            "Juárez",
+            "Lamadrid",
+            "Matamoros",
+            "Monclova",
+            "Morelos",
+            "Múzquiz",
+            "Nadadores",
+            "Nava",
+            "Ocampo",
+            "Parras",
+            "Piedras Negras",
+            "Progreso",
+            "Ramos Arizpe",
+            "Sabinas",
+            "Sacramento",
+            "Saltillo",
+            "San Buenaventura",
+            "San Juan de Sabinas",
+            "San Pedro",
+            "Sierra Mojada",
+            "Torreón",
+            "Viesca",
+            "Villa Unión",
+            "Zaragoza"
+        ]
+    },
+    {
+        "state": "Colima",
+        "cities": [
+            "Armería",
+            "Colima",
+            "Comala",
+            "Coquimatlán",
+            "Cuauhtémoc",
+            "Ixtlahuacán",
+            "Manzanillo",
+            "Minatitlán",
+            "Tecomán",
+            "Villa de Álvarez"
+        ]
+    },
+    {
+        "state": "Durango",
+        "cities": [
+            "Canatlán",
+            "Canelas",
+            "Coneto de Comonfort",
+            "Cuencamé",
+            "Durango",
+            "El Oro",
+            "General Simón Bolívar",
+            "Gómez Palacio",
+            "Guadalupe Victoria",
+            "Guanacevi",
+            "Hidalgo",
+            "Indé",
+            "Lerdo",
+            "Mapimí",
+            "Mezquital",
+            "Nazas",
+            "Nombre de Dios",
+            "Nuevo Ideal",
+            "Ocampo",
+            "Otáez",
+            "Pánuco de Coronado",
+            "Peñón Blanco",
+            "Poanas",
+            "Pueblo Nuevo",
+            "Rodeo",
+            "San Bernardo",
+            "San Dimas",
+            "San Juan de Guadalupe",
+            "San Juan del Río",
+            "San Luis del Cordero",
+            "San Pedro del Gallo",
+            "Santa Clara",
+            "Santiago Papasquiaro",
+            "Súchil",
+            "Tamazula",
+            "Tepehuanes",
+            "Tlahualilo",
+            "Topia",
+            "Vicente Guerrero"
+        ]
+    },
+    {
+        "state": "Estado de México",
+        "cities": [
+            "Acambay",
+            "Acolman",
+            "Áculco",
+            "Almoloya de Alquisiras",
+            "Almoloya de Juárez",
+            "Almoloya del Río",
+            "Amanalco",
+            "Amatepec",
+            "Amecameca",
+            "Apaco",
+            "Atenco",
+            "Atizapán",
+            "Atizapán de Zaragoza",
+            "Atlacomulco",
+            "Atlautla",
+            "Axapusco",
+            "Ayapango",
+            "Calimaya",
+            "Capulhuac",
+            "Chalco",
+            "Chapa de Mota",
+            "Chapultepec",
+            "Chiautla",
+            "Chicoloapan",
+            "Chiconcuac",
+            "Chimalhuacán",
+            "Coacalco de Berriozábal",
+            "Coatepec Harinas",
+            "Cocotitlán",
+            "Covotepec",
+            "Cuautitlán",
+            "Cuautitlán Izcalli",
+            "Donato Guerra",
+            "Ecatepec de Morelos",
+            "Ecatzingo",
+            "El Oro",
+            "Huehuetoca",
+            "Hueypoxtla",
+            "Huixquilucan",
+            "Isidro Fabela",
+            "Ixtapaluca",
+            "Ixtapan de la Sal",
+            "Ixtapan del Oro",
+            "Ixtlahuaca",
+            "Jaltenco",
+            "Jilotepec",
+            "Jilotzingo",
+            "Jiquipilco",
+            "Jocotitlán",
+            "Joquicingo",
+            "Juchitepec",
+            "La Paz",
+            "Lerma",
+            "Luvianos",
+            "Malinalco",
+            "Melchor Ocampo",
+            "Metepec",
+            "Mexicaltzingo",
+            "Morelos",
+            "Naucalpan de Juárez",
+            "Nextlalpan",
+            "Nezahualcoyotl",
+            "Nicolás Romero",
+            "Nopaltepec",
+            "Ocoyoacac",
+            "Ocuilan",
+            "Otumba",
+            "Otzoloapan",
+            "Otzolotepec",
+            "Ozumba",
+            "Papalotla",
+            "Polotitlán",
+            "Rayón",
+            "San Antonio la Isla",
+            "San Felipe del Progreso",
+            "San José del Rincón",
+            "San Martín de las Pirámides",
+            "San Mateo Atenco",
+            "San Simón de Guerrero",
+            "Santo Tomás",
+            "Soyaniquilpan de Juárez",
+            "Sultepec",
+            "Tecamac",
+            "Tejupilco",
+            "Temamatla",
+            "Temascalapa",
+            "Temascalcingo",
+            "Temascaltepec",
+            "Temoava",
+            "Tenancingo",
+            "Tenango del Aire",
+            "Tenango del Valle",
+            "Teoloyucán",
+            "Teotihuacán",
+            "Tepetlaoxtoc",
+            "Tepetlixpa",
+            "Tepotzotlán",
+            "Tequixquiac",
+            "Texcaltitlán",
+            "Texcalyacac",
+            "Texcoco",
+            "Tezoyuca",
+            "Tianguistenco",
+            "Timilpan",
+            "Tlalmanalco",
+            "Tlalnepantla de Baz",
+            "Tlatlava",
+            "Toluca",
+            "Tonanitla",
+            "Tonatico",
+            "Tultepec",
+            "Tultitlán",
+            "Valle de Bravo",
+            "Valle de Chalco Solidaridad",
+            "Villa de Allende",
+            "Villa del Carbón",
+            "Villa Guerrero",
+            "Villa Victoria",
+            "Xalatlaco",
+            "Xonacatlán",
+            "Zacazonapan",
+            "Zacualpan",
+            "Zinacantepec",
+            "Zumpahuacán",
+            "Zumpango"
+        ]
+    },
+    {
+        "state": "Guanajuato",
+        "cities": [
+            "Abasolo",
+            "Acambaro",
+            "Allende",
+            "Apaseo el Alto",
+            "Apaseo el Grande",
+            "Atarjea",
+            "Celaya",
+            "Comonfort",
+            "Coroneo",
+            "Cortazar",
+            "Cueramaro",
+            "Doctor Mora",
+            "Dolores Hidalgo",
+            "Guanajuato",
+            "Huanimaro",
+            "Irapuato",
+            "Jaral del Progreso",
+            "Leon",
+            "Manuel Doblado",
+            "Moroleon",
+            "Ocampo",
+            "Penjamo",
+            "Pueblo Nuevo",
+            "Purisima del Rincon",
+            "Romita",
+            "Salamanca",
+            "Salvatierra",
+            "San Diego de la Union",
+            "San Felipe",
+            "San Francisco del Rincon",
+            "San Jose Iturbide",
+            "San Luis de la Plaza",
+            "Santa Catarina",
+            "Santa Cruz de Juventino Rosas",
+            "Santiago Maravatio",
+            "Silao",
+            "Tarandacuao",
+            "Tarimoro",
+            "Tierra Blanca",
+            "Uriangato",
+            "Valle de Santiago",
+            "Victoria",
+            "Villagran",
+            "Xichu",
+            "Yuriria"
+        ]
+    },
+    {
+        "state": "Guerrero",
+        "cities": [
+            "Acapulco de Juárez",
+            "Acatepec",
+            "Ahuacuotzingo",
+            "Ajuchitlán del Progreso",
+            "Alcozauca de Guerrero",
+            "Ароуеса",
+            "Apaxtla",
+            "Arcelia",
+            "Atenango del Río",
+            "Atlamajalcingo del Monte",
+            "Atlixtac",
+            "Atoyac de Álvarez",
+            "Ayutla de los Libres",
+            "Azoyú",
+            "Benito Juárez",
+            "Buenavista de Cuéllar",
+            "Chilapa de Álvarez",
+            "Chilpancingo de los Bravo",
+            "Coahuayutla de José María Izazaga",
+            "Cochoapa el Grande",
+            "Cocula",
+            "Copala",
+            "Copalillo",
+            "Copanatoyac",
+            "Coyuca de Benitez",
+            "Coyuca de Catalán",
+            "Cuajinicuilapa",
+            "Cualác",
+            "Cuautepec",
+            "Cuetzala del Progreso",
+            "Cutzamala de Pinzón",
+            "Eduardo Neri",
+            "Florencio Villarreal",
+            "General Canuto A. Neri",
+            "General Heliodoro Castillo",
+            "Huamuxtitlán",
+            "Huitzuco de los Figueroa",
+            "Iguala de la Independencia",
+            "Igualapa",
+            "Iliatenco",
+            "Ixcateopan de Cuauhtémoc",
+            "José Joaquin de Herrera",
+            "Juan R. Escudero",
+            "Juchitán",
+            "La Unión de Isidoro Montes de Oca",
+            "Leonardo Bravo",
+            "Malinaltepec",
+            "Marquelia",
+            "Mártir de Cuilapan",
+            "Metlatónoc",
+            "Mochitlán",
+            "Olinalá",
+            "Ometepec",
+            "Pedro Ascencio Alquisiras",
+            "Petatlán",
+            "Pilcava",
+            "Pungarabato",
+            "Quechultenango",
+            "San Luis Acatlán",
+            "San Marcos",
+            "San Miguel Totolapan",
+            "Taxco de Alarcón",
+            "Tecoanapa",
+            "Técpan de Galeana",
+            "Teloloapan",
+            "Tepecoacuilco de Trujano",
+            "Tetipac",
+            "Tixtla de Guerrero",
+            "Tlacoachistlahuaca",
+            "Tlacoapa",
+            "Tlalchapa",
+            "Tlalixtaquilla de Maldonado",
+            "Tlapa de Comonfort",
+            "Tlapehuala",
+            "Xalpatláhuac",
+            "Xochihuehuetlán",
+            "Xochistlahuaca",
+            "Zapotitlán Tablas",
+            "Zihuatanejo de Azueta",
+            "Zirándaro",
+            "Zitlala"
+        ]
+    },
+    {
+        "state": "Hidalgo",
+        "cities": [
+            "Acatlán",
+            "Acaxochitlán",
+            "Actopan",
+            "Agua Blanca de Iturbide",
+            "Ajacuba",
+            "Alfajayucan",
+            "Almoloya",
+            "Apan",
+            "Atitalaquia",
+            "Atlapexco",
+            "Atotonilco de Tula",
+            "Atotonilco el Grande",
+            "Calnali",
+            "Cardonal",
+            "Chapantongo",
+            "Chapulhuacán",
+            "Chilcuautla",
+            "Cuautepec de Hinojosa",
+            "El Arenal",
+            "Eloxochitlán",
+            "Emiliano Zapata",
+            "Epazoyucan",
+            "Francisco I. Madero",
+            "Huasca de Ocampo",
+            "Huautla",
+            "Huazalingo",
+            "Huehuetla",
+            "Huejutla de Reyes",
+            "Huichapan",
+            "Ixmiquilpan",
+            "Jacala de Ledezma",
+            "Jaltocan",
+            "Juárez Hidalgo",
+            "La Misión",
+            "Lolotla",
+            "Metepec",
+            "Metztitlán",
+            "Mineral de la Reforma",
+            "Mineral del Chico",
+            "Mineral del Monte",
+            "Mixquiahuala de Juárez",
+            "Molango de Escamilla",
+            "Nicolás Flores",
+            "Nopala de Villagran",
+            "Omitlán de Juárez",
+            "Pachuca de Soto",
+            "Pacula",
+            "Pisaflores",
+            "Progreso de Obregón",
+            "San Agustín Metzquititlán",
+            "San Agustín Tlaxiaca",
+            "San Bartolo Tutotepec",
+            "San Felipe Orizatlán",
+            "San Salvador",
+            "Santiago de Anaya",
+            "Santiago Tulantepec de Lugo Guerrero",
+            "Singuilucan",
+            "Tasquillo",
+            "Tecozautla",
+            "Tenango de Doria",
+            "Tepeapulco",
+            "Tepehuacan de Guerrero",
+            "Tepeji del Río de Ocampo",
+            "Tepetitlán",
+            "Tetepango",
+            "Tezontepec de Aldama",
+            "Tianguistengo",
+            "Tizayuca",
+            "Tlahuelilpan",
+            "Tlahuiltepa",
+            "Tlanalapa",
+            "Tlanchinol",
+            "Tlaxcoapan",
+            "Tolcayuca",
+            "Tula de Allende",
+            "Tulancingo de Bravo",
+            "Villa de Tezontepec",
+            "Xochiatipan",
+            "Xochicoatlán",
+            "Yahualica",
+            "Zacualtipán de Ángeles",
+            "Zapotlán de Juárez",
+            "Zempoala",
+            "Zimapán"
+        ]
+    },
+    {
+        "state": "Jalisco",
+        "cities": [
+            "Acatic",
+            "Acatlán de Juárez",
+            "Ahualulco de Mercado",
+            "Amacueca",
+            "Amatitán",
+            "Ameca",
+            "Arandas",
+            "Atemajac de Brizuela",
+            "Atengo",
+            "Atenguillo",
+            "Atotonilco el Alto",
+            "Atoyac",
+            "Autlán de Navarro",
+            "Ayotlán",
+            "Ayutla",
+            "Bolaños",
+            "Cabo Corrientes",
+            "Cañadas de Obregón",
+            "Casimiro Castillo",
+            "Chapala",
+            "Chimaltitán",
+            "Chiquilistlán",
+            "Cihuatlán",
+            "Cocula",
+            "Colotlán",
+            "Concepción de Buenos Aires",
+            "Cuautitlán de García Barragán",
+            "Cuautla",
+            "Cuquío",
+            "Degollado",
+            "Ejutla",
+            "El Arenal",
+            "El Grullo",
+            "El Limón",
+            "El Salto",
+            "Encarnación de Díaz",
+            "Etzatlán",
+            "Gómez Farías",
+            "Guachinango",
+            "Guadalajara",
+            "Hostotipaquillo",
+            "Huejúcar",
+            "Huejuquilla el Alto",
+            "Ixtlahuacán de los Membrillos",
+            "Ixtlahuacán del Río",
+            "Jalostotitlán",
+            "Jamay",
+            "Jesús María",
+            "Jilotlán de los Dolores",
+            "Jocotepec",
+            "Juanacatlán",
+            "Juchitlán",
+            "La Barca",
+            "La Huerta",
+            "La Manzanilla de la Paz",
+            "Lagos de Moreno",
+            "Magdalena",
+            "Mascota",
+            "Mazamitla",
+            "Mexticacán",
+            "Mezquitic",
+            "Mixtlán",
+            "Ocotlán",
+            "Ojuelos de Jalisco",
+            "Pihuamo",
+            "Poncitlán",
+            "Puerto Vallarta",
+            "Quitupan",
+            "San Cristóbal de la Barranca",
+            "San Diego de Alejandría",
+            "San Gabriel",
+            "San Ignacio Cerro Gordo",
+            "San Juan de los Lagos",
+            "San Juanito de Escobedo",
+            "San Julián",
+            "San Marcos",
+            "San Martín de Bolaños",
+            "San Martín Hidalgo",
+            "San Miguel el Alto",
+            "San Sebastián del Oeste",
+            "Santa María de los Ángeles",
+            "Santa María del Oro",
+            "Sayula",
+            "Tala",
+            "Talpa de Allende",
+            "Tamazula de Gordiano",
+            "Tapalpa",
+            "Tecalitlán",
+            "Techaluta de Montenegro",
+            "Tecolotlán",
+            "Tenamaxtlán",
+            "Teocaltiche",
+            "Teocuitatlán de Corona",
+            "Tepatitlán de Morelos",
+            "Tequila",
+            "Teuchitlán",
+            "Tizapán el Alto",
+            "Tlajomulco de Zúñiga",
+            "Tlaquepaque",
+            "Tolimán",
+            "Tomatlán",
+            "Tonalá",
+            "Tonaya",
+            "Tonila",
+            "Totatiche",
+            "Tototlán",
+            "Tuxcacuesco",
+            "Tuxcueca",
+            "Tuxpan",
+            "Unión de San Antonio",
+            "Unión de Tula",
+            "Valle de Guadalupe",
+            "Valle de Juárez",
+            "Villa Corona",
+            "Villa Guerrero",
+            "Villa Hidalgo",
+            "Villa Purificación",
+            "Yahualica de González Gallo",
+            "Zacoalco de Torres",
+            "Zapopan",
+            "Zapotiltic",
+            "Zapotitlán de Vadillo",
+            "Zapotlán del Rey",
+            "Zapotlán el Grande",
+            "Zapotlanejo"
+        ]
+    },
+    {
+        "state": "Michoacán",
+        "cities": [
+            "Acuitzio",
+            "Aguililla",
+            "Álvaro Obregón",
+            "Angamacutiro",
+            "Angangueo",
+            "Apatzingán",
+            "Aporo",
+            "Aquila",
+            "Ario",
+            "Arteaga",
+            "Briseñas",
+            "Buenavista",
+            "Carácuaro",
+            "Charapan",
+            "Charo",
+            "Chavinda",
+            "Cherán",
+            "Chilchota",
+            "Chinicuila",
+            "Chucándiro",
+            "Churintzio",
+            "Churumuco",
+            "Coahuayana",
+            "Coalcomán de Vázquez Pallares",
+            "Coeneo",
+            "Cojumatlán de Régules",
+            "Contepec",
+            "Copándaro",
+            "Cotija",
+            "Cuitzeo",
+            "Ecuandureo",
+            "Epitacio Huerta",
+            "Erongarícuaro",
+            "Gabriel Zamora",
+            "Hidalgo",
+            "Huandacareo",
+            "Huaniqueo",
+            "Huetamo",
+            "Huiramba",
+            "Indaparapeo",
+            "Irimbo",
+            "Ixtlán",
+            "Jacona",
+            "Jiménez",
+            "Jiquilpan",
+            "Juárez",
+            "Jungapeo",
+            "La Huacana",
+            "La Piedad",
+            "Lagunillas",
+            "Lázaro Cárdenas",
+            "Los Reyes",
+            "Madero",
+            "Maravatío",
+            "Marcos Castellanos",
+            "Morelia",
+            "Morelos",
+            "Múgica",
+            "Nahuatzen",
+            "Nocupétaro",
+            "Nuevo Parangaricutiro",
+            "Nuevo Urecho",
+            "Numarán",
+            "Ocampo",
+            "Paiacuarán",
+            "Panindícuaro",
+            "Paracho",
+            "Parácuaro",
+            "Pátzcuaro",
+            "Penjamillo",
+            "Peribán",
+            "Purépero",
+            "Puruándiro",
+            "Queréndaro",
+            "Quiroga",
+            "Sahuayo",
+            "Salvador Escalante",
+            "San Lucas",
+            "Santa Ana Maya",
+            "Senguio",
+            "Susupuato",
+            "Tacámbaro",
+            "Tancítaro",
+            "Tangamandapio",
+            "Tangancícuaro",
+            "Tanhuato",
+            "Taretan",
+            "Tarímbaro",
+            "Tepalcatepec",
+            "Tingambato",
+            "Tingüindín",
+            "Tiquicheo de Nicolás Romero",
+            "Tlalpujahua",
+            "Tlazazalca",
+            "Tocumbo",
+            "Tumbiscatío",
+            "Turicato",
+            "Tuxpan",
+            "Tuzantla",
+            "Tzintzuntzan",
+            "Tzitzio",
+            "Uruapan",
+            "Venustiano Carranza",
+            "Villamar",
+            "Vista Hermosa",
+            "Yurécuaro",
+            "Zacapu",
+            "Zamora",
+            "Zináparo",
+            "Zinapécuaro",
+            "Ziracuaretiro",
+            "Zitácuaro"
+        ]
+    },
+    {
+        "state": "Morelos",
+        "cities": [
+            "Amacuzac",
+            "Atlatlahucan",
+            "Axochiapan",
+            "Ayala",
+            "Coatlán del Río",
+            "Cuautla",
+            "Cuernavaca",
+            "Emiliano Zapata",
+            "Huitzilac",
+            "Jantetelco",
+            "Jojutla",
+            "Jonacatepec",
+            "Juitepec",
+            "Mazatepec",
+            "Miacatlán",
+            "Ocuituco",
+            "Puente de Ixtla",
+            "Temixco",
+            "Temoac",
+            "Tepalcingo",
+            "Tepoztlán",
+            "Tetecala",
+            "Tetela del Volcán",
+            "Tlalnepantla",
+            "Tlaltizapán",
+            "Tlaquiltenango",
+            "Tlayacapan",
+            "Totolapan",
+            "Xochitepec",
+            "Yautepec",
+            "Yecapixtla",
+            "Yecapixtla",
+            "Zacualpan"
+        ]
+    },
+    {
+        "state": "Nayarit",
+        "cities": [
+            "Acaponeta",
+            "Ahuacatlán",
+            "Amatlán de Cañas",
+            "Bahía de Banderas",
+            "Compostela",
+            "Del Nayar",
+            "Huajicori",
+            "Ixtlán del Río",
+            "Jala",
+            "La Yesca",
+            "Rosamorada",
+            "Ruíz",
+            "San Blas",
+            "San Pedro Lagunillas",
+            "Santa María del Oro",
+            "Santiago Ixcuintla",
+            "Tecuala",
+            "Tepic",
+            "Tuxpan",
+            "Xalisco"
+        ]
+    },
+    {
+        "state": "Nuevo León",
+        "cities": [
+            "Abasolo",
+            "Agualeguas",
+            "Allende",
+            "Anáhuac",
+            "Apodaca",
+            "Aramberri",
+            "Bustamante",
+            "Cadereyta Jiménez",
+            "Carmen",
+            "Cerralvo",
+            "China",
+            "Ciénega de Flores",
+            "Dr. Arroyo",
+            "Dr. Coss",
+            "Dr. González",
+            "Galeana",
+            "García",
+            "Gral. Bravo",
+            "Gral. Escobedo",
+            "Gral. Terán",
+            "Gral. Treviño",
+            "Gral. Zaragoza",
+            "Gral. Zuazua",
+            "Guadalupe",
+            "Hidalgo",
+            "Higueras",
+            "Hualahuises",
+            "Iturbide",
+            "Juárez",
+            "Lampazos de Naranjo",
+            "Linares",
+            "Los Aldamas",
+            "Los Herreras",
+            "Los Ramones",
+            "Marín",
+            "Melchor Ocampo",
+            "Mier y Noriega",
+            "Mina",
+            "Montemorelos",
+            "Monterrey",
+            "Parás",
+            "Pesquería",
+            "Rayones",
+            "Sabinas Hidalgo",
+            "Salinas Victoria",
+            "San Nicolás de los Garza",
+            "San Pedro Garza García",
+            "Santa Catarina",
+            "Santiago",
+            "Vallecillo",
+            "Villaldama"
+        ]
+    },
+    {
+        "state": "Querétaro",
+        "cities": [
+            "Amealco de Bonfil",
+            "Arroyo Seco",
+            "Caderevta de Montes",
+            "Colón",
+            "Corregidora",
+            "El Marqués",
+            "Ezequiel Montes",
+            "Huimilpan",
+            "Jalpan de Serra",
+            "Landa de Matamoros",
+            "Pedro Escobedo",
+            "Peñamiller",
+            "Pinal de Amoles",
+            "Querétaro",
+            "San Joaquín",
+            "San Juan del Río",
+            "Tequisquiapan",
+            "Tolimán"
+        ]
+    },
+    {
+        "state": "Quintana Roo",
+        "cities": [
+            "Bacalar",
+            "Benito Juárez",
+            "Cozumel",
+            "Felipe Carrillo Puerto",
+            "Isla Mujeres",
+            "José María Morelos",
+            "Lázaro Cárdenas",
+            "Othón P. Blanco",
+            "Puerto Morelos",
+            "Solidaridad",
+            "Tulum"
+        ]
+    },
+    {
+        "state": "San Luis Potosí",
+        "cities": [
+            "Ahualulco",
+            "Alaquines",
+            "Aquismón",
+            "Armadillo de los Infante",
+            "Axtla de Terrazas",
+            "Cárdenas",
+            "Catorce",
+            "Cedral",
+            "Cerritos",
+            "Cerro de San Pedro",
+            "Charcas",
+            "Ciudad del Maíz",
+            "Ciudad Fernández",
+            "Ciudad Valles",
+            "Coxcatlán",
+            "Ebano",
+            "El Naranjo",
+            "Guadalcázar",
+            "Huehuetlán",
+            "Lagunillas",
+            "Matehuala",
+            "Matlapa",
+            "Mexquitic de Carmona",
+            "Moctezuma",
+            "Rayón",
+            "Rioverde",
+            "Salinas",
+            "San Antonio",
+            "San Ciro de Acosta",
+            "San Luis Potosí",
+            "San Martín Chalchicuautla",
+            "San Nicolás Tolentino",
+            "San Vicente Tancuayalab",
+            "Santa Catarina",
+            "Santa María del Río",
+            "Santo Domingo",
+            "Soledad de Graciano Sánchez",
+            "Tamasopo",
+            "Tamazunchale",
+            "Tampacán",
+            "Tampamolón Corona",
+            "Tamuín",
+            "Tancanhuitz",
+            "Tanlajás",
+            "Tanquián de Escobedo",
+            "Tierra Nueva",
+            "Vanegas",
+            "Venado",
+            "Villa de Arista",
+            "Villa de Arriaga",
+            "Villa de Guadalupe",
+            "Villa de la Paz",
+            "Villa de Ramos",
+            "Villa de Reyes",
+            "Villa Hidalgo",
+            "Villa Juárez",
+            "Xilitla",
+            "Zaragoza"
+        ]
+    },
+    {
+        "state": "Sinaloa",
+        "cities": [
+            "Ahome",
+            "Angostura",
+            "Badiraguato",
+            "Choix",
+            "Concordia",
+            "Cosalá",
+            "Culiacán",
+            "El Fuerte",
+            "Elota",
+            "Escuinapa",
+            "Guasave",
+            "Mazatlán",
+            "Mocorito",
+            "Navolato",
+            "Rosario",
+            "Salvador Alvarado",
+            "San Ignacio",
+            "Sinaloa"
+        ]
+    },
+    {
+        "state": "Tabasco",
+        "cities": [
+            "Balancán",
+            "Cárdenas",
+            "Centla",
+            "Centro",
+            "Comalcalco",
+            "Cunduacán",
+            "Emiliano Zapata",
+            "Huimanguillo",
+            "Jalapa",
+            "Jalpa de Méndez",
+            "Jonuta",
+            "Macuspana",
+            "Nacajuca",
+            "Paraíso",
+            "Tacotalpa",
+            "Teapa",
+            "Tenosique"
+        ]
+    },
+    {
+        "state": "Sonora",
+        "cities": [
+            "Aconchi",
+            "Agua Prieta",
+            "Alamos",
+            "Altar",
+            "Arivechi",
+            "Arizpe",
+            "Atil",
+            "Bacadéhuachi",
+            "Bacanora",
+            "Bacerac",
+            "Bacoachi",
+            "Bácum",
+            "Banámichi",
+            "Baviácora",
+            "Bavispe",
+            "Benito Juárez",
+            "Beniamín Hill",
+            "Caborca",
+            "Cajeme",
+            "Cananea",
+            "Carbó",
+            "Cucurpe",
+            "Cumpas",
+            "Divisaderos",
+            "Empalme",
+            "Etchojoa",
+            "Fronteras",
+            "General Plutarco Elías Calles",
+            "Granados",
+            "Guaymas",
+            "Hermosillo",
+            "Huachinera",
+            "Huásabas",
+            "Huatabampo",
+            "Huépac",
+            "Imuris",
+            "La Colorada",
+            "Magdalena",
+            "Mazatán",
+            "Moctezuma",
+            "Naco",
+            "Nácori Chico",
+            "Nacozari de García",
+            "Navojoa",
+            "Nogales",
+            "Onavas",
+            "Opodepe",
+            "Oquitoa",
+            "Pitiquito",
+            "Puerto Peñasco",
+            "Quiriego",
+            "Rayón",
+            "Rosario",
+            "Sahuaripa",
+            "San Felipe de Jesús",
+            "San Ignacio Río Muerto",
+            "San Javier",
+            "San Luis Río Colorado",
+            "San Miguel de Horcasitas",
+            "San Pedro de la Cueva",
+            "Santa Ana",
+            "Santa Cruz",
+            "Sáric",
+            "Soyopa",
+            "Suaqui Grande",
+            "Tepache",
+            "Trincheras",
+            "Tubutama",
+            "Ures",
+            "Villa Hidalgo",
+            "Villa Pesqueira",
+            "Yécora"
+        ]
+    },
+    {
+        "state": "Tamaulipas",
+        "cities": [
+            "Abasolo",
+            "Aldama",
+            "Altamira",
+            "Antiguo Morelos",
+            "Burgos",
+            "Bustamante",
+            "Camargo",
+            "Casas",
+            "Ciudad Madero",
+            "Cruillas",
+            "El Mante",
+            "Gómez Farías",
+            "González",
+            "Guerrero",
+            "Gustavo Díaz Ordaz",
+            "Güémez",
+            "Hidalgo",
+            "Jaumave",
+            "Jiménez",
+            "Llera",
+            "Mainero",
+            "Matamoros",
+            "Méndez",
+            "Mier",
+            "Miguel Alemán",
+            "Miquihuana",
+            "Nuevo Laredo",
+            "Nuevo Morelos",
+            "Ocampo",
+            "Padilla",
+            "Palmillas",
+            "Reynosa",
+            "Río Bravo",
+            "San Carlos",
+            "San Fernando",
+            "San Nicolás",
+            "Soto la Marina",
+            "Tampico",
+            "Tula",
+            "Valle Hermoso",
+            "Victoria",
+            "Villagrán",
+            "Xicoténcatl"
+        ]
+    },
+    {
+        "state": "Tlaxcala",
+        "cities": [
+            "Acuamanala de Miguel Hidalgo",
+            "Amaxac de Guerrero",
+            "Apetatitlán de Antonio Carvajal",
+            "Apizaco",
+            "Atlangatepec",
+            "Atltzayanca",
+            "Benito Juárez",
+            "Calpulalpan",
+            "Chiautempan",
+            "Contla de Juan Cuamatzi",
+            "Cuapiaxtla",
+            "Cuaxomulco",
+            "El Carmen Tequexquitla",
+            "Emiliano Zapata",
+            "Españita",
+            "Huamantla",
+            "Hueyotlipan",
+            "Ixtacuixtla de Mariano Matamoros",
+            "Ixtenco",
+            "La Magdalena Tlaltelulco",
+            "Lázaro Cárdenas",
+            "Mazatecochco de José María Morelos",
+            "Muñoz de Domingo Arenas",
+            "Nanacamilpa de Mariano Arista",
+            "Natívitas",
+            "Panotla",
+            "Papalotla de Xicohténcatl",
+            "San Damián Texóloc",
+            "San Francisco Tetlanohcan",
+            "San Jerónimo Zacualpan",
+            "San José Teacalco",
+            "San Juan Huactzinco",
+            "San Lorenzo Axocomanitla",
+            "San Lucas Tecopilco",
+            "San Pablo del Monte",
+            "Sanctórum de Lázaro Cárdenas",
+            "Santa Ana Nopalucan",
+            "Santa Apolonia Teacalco",
+            "Santa Catarina Ayometla",
+            "Santa Cruz Quilehtla",
+            "Santa Cruz Tlaxcala",
+            "Santa Isabel Xiloxoxtla",
+            "Tenancingo",
+            "Teolocholco",
+            "Tepetitla de Lardizábal",
+            "Tepeyanco",
+            "Terrenate",
+            "Tetla de la Solidaridad",
+            "Tetlatlahuca",
+            "Tlaxcala",
+            "Tlaxco",
+            "Tocatlán",
+            "Totolac",
+            "Tzompantepec",
+            "Xaloztoc",
+            "Xaltocan",
+            "Xicohtzinco",
+            "Yauhquemehcan",
+            "Zacatelco",
+            "Ziltlaltépec de Trinidad Sánchez Santos"
+        ]
+    },
+    {
+        "state": "Veracruz",
+        "cities": [
+            "Acajete",
+            "Acatlán",
+            "Acayucan",
+            "Actopan",
+            "Acula",
+            "Acultzingo",
+            "Agua Dulce",
+            "Álamo Temapache",
+            "Alpatláhuac",
+            "Alto Lucero de Gutiérrez Barrios",
+            "Altotonga",
+            "Alvarado",
+            "Amatitlán",
+            "Amatlán de los Reyes",
+            "Angel R. Cabada",
+            "Apazapan",
+            "Aquila",
+            "Astacinga",
+            "Atlahuilco",
+            "Atoyac",
+            "Atzacan",
+            "Atzalan",
+            "Ayahualulco",
+            "Banderilla",
+            "Benito Juárez",
+            "Boca del Río",
+            "Calcahualco",
+            "Camarón de Tejeda",
+            "Camerino Z. Mendoza",
+            "Carlos A. Carrillo",
+            "Carrillo Puerto",
+            "Castillo de Teayo",
+            "Catemaco",
+            "Cazones de Herrera",
+            "Cerro Azul",
+            "Chacaltianguis",
+            "Chalma",
+            "Chiconamel",
+            "Chiconquiaco",
+            "Chicontepec",
+            "Chinameca",
+            "Chinampa de Gorostiza",
+            "Chocamán",
+            "Chontla",
+            "Chumatlán",
+            "Citlaltépetl",
+            "Coacoatzintla",
+            "Coahuitlán",
+            "Coatepec",
+            "Coatzacoalcos",
+            "Coatzintla",
+            "Coetzala",
+            "Colipa",
+            "Comapa",
+            "Córdoba",
+            "Cosamaloapan de Carpio",
+            "Cosautlán de Carvajal",
+            "Coscomatepec",
+            "Cosoleacaque",
+            "Cotaxtla",
+            "Coxquihui",
+            "Coyutla",
+            "Cuichapa",
+            "Cuitláhuac",
+            "El Higo",
+            "Emiliano Zapata",
+            "Espinal",
+            "Filomeno Mata",
+            "Fortín",
+            "Gutiérrez Zamora",
+            "Hidalgotitlán",
+            "Huatusco",
+            "Huayacocotla",
+            "Hueyapan de Ocampo",
+            "Huiloapan de Cuauhtémoc",
+            "Ignacio de la Llave",
+            "llamatlán",
+            "Isla",
+            "Ixcatepec",
+            "Ixhuacán de los Reyes",
+            "Ixhuatlán de Madero",
+            "Ixhuatlán del Café",
+            "Ixhuatlán del Sureste",
+            "Ixhuatlancillo",
+            "Ixmatlahuacan",
+            "Ixtaczoquitlán",
+            "Jalacingo",
+            "Jalcomulco",
+            "Jaltipan",
+            "Jamapa",
+            "Jesús Carranza",
+            "Jilotepec",
+            "José Azueta",
+            "Juan Rodríguez Clara",
+            "Juchique de Ferrer",
+            "La Antigua",
+            "La Perla",
+            "Landero y Coss",
+            "Las Choapas",
+            "Las Minas",
+            "Las Vigas de Ramírez",
+            "Lerdo de Tejada",
+            "Los Reyes",
+            "Magdalena",
+            "Maltrata",
+            "Manlio Fabio Altamirano",
+            "Mariano Escobedo",
+            "Martínez de la Torre",
+            "Mecatlán",
+            "Mecayapan",
+            "Medellín",
+            "Miahuatlán",
+            "Minatitlán",
+            "Misantla",
+            "Mixtla de Altamirano",
+            "Moloacán",
+            "Nanchital de Lázaro Cárdenas del Río",
+            "Naolinco",
+            "Naranjal",
+            "Naranjos Amatlán",
+            "Nautla",
+            "Nogales",
+            "Oluta",
+            "Omealca",
+            "Orizaba",
+            "Otatitlán",
+            "Oteapan",
+            "Ozuluama de Mascareñas",
+            "Pajapan",
+            "Pánuco",
+            "Papantla",
+            "Paso de Ovejas",
+            "Paso del Macho",
+            "Perote",
+            "Platón Sánchez",
+            "Playa Vicente",
+            "Poza Rica de Hidalgo",
+            "Pueblo Viejo",
+            "Puente Nacional",
+            "Rafael Delgado",
+            "Rafael Lucio",
+            "Río Blanco",
+            "Saltabarranca",
+            "San Andrés Tenejapan",
+            "San Andrés Tuxtla",
+            "San Juan Evangelista",
+            "San Rafael",
+            "Santiago Sochiapan",
+            "Santiago Tuxtla",
+            "Sayula de Alemán",
+            "Sochiapa",
+            "Soconusco",
+            "Soledad Atzompa",
+            "Soledad de Doblado",
+            "Soteapan",
+            "Tamalín",
+            "Tamiahua",
+            "Tampico Alto",
+            "Tancoco",
+            "Tantima",
+            "Tantoyuca",
+            "Tatahuicapan de Juárez",
+            "Tatatila",
+            "Tecolutla",
+            "Tehuipango",
+            "Tempoal",
+            "Tenampa",
+            "Tenochtitlán",
+            "Teocelo",
+            "Tepatlaxco",
+            "Tepetlán",
+            "Tepetzintla",
+            "Tequila",
+            "Texcatepec",
+            "Texhuacán",
+            "Texistepec",
+            "Tezonapa",
+            "Tierra Blanca",
+            "Tihuatlán",
+            "Tlachichilco",
+            "Tlacojalpan",
+            "Tlacolulan",
+            "Tlacotalpan",
+            "Tlacotepec de Mejía",
+            "Tlalixcoyan",
+            "Tlalnelhuayocan",
+            "Tlaltetela",
+            "Tlapacoyan",
+            "Tlaquilpa",
+            "Tlilapan",
+            "Tomatlán",
+            "Tonayán",
+            "Totutla",
+            "Tres Valles",
+            "Tuxpan",
+            "Tuxtilla",
+            "Ursulo Galván",
+            "Uxpanapa",
+            "Vega de Alatorre",
+            "Veracruz",
+            "Villa Aldama",
+            "Xalapa",
+            "Xico",
+            "Xoxocotla",
+            "Yanga",
+            "Yecuatla",
+            "Zacualpan",
+            "Zaragoza",
+            "Zentla",
+            "Zongolica",
+            "Zontecomatlán de López y Fuentes",
+            "Zozocolco de Hidalgo"
+        ]
+    },
+    {
+        "state": "Yucatán",
+        "cities": [
+            "Abalá",
+            "Acanceh",
+            "Akil",
+            "Baca",
+            "Bokobá",
+            "Buctzotz",
+            "Cacalchén",
+            "Calotmul",
+            "Cansahcab",
+            "Cantamayec",
+            "Celestún",
+            "Cenotillo",
+            "Chacsinkin",
+            "Chankom",
+            "Chapab",
+            "Chemax",
+            "Chichimilá",
+            "Chiculub Pueblo",
+            "Chikindzonot",
+            "Chocholá",
+            "Chumayel",
+            "Conkal",
+            "Cuncunul",
+            "Cuzamá",
+            "Dzán",
+            "Dzemul",
+            "Dzidzantún",
+            "Dzilam de Bravo",
+            "Dzilam González",
+            "Dzitás",
+            "Dzoncauich",
+            "Espita",
+            "Halachó",
+            "Hocabá",
+            "Hoctún",
+            "Homún",
+            "Huhí",
+            "Hunucmá",
+            "Ixil",
+            "Izamal",
+            "Kanasín",
+            "Kantunil",
+            "Kaua",
+            "Kinchil",
+            "Kopomá",
+            "Mama",
+            "Maní",
+            "Maxcanú",
+            "Mayapán",
+            "Mérida",
+            "Mocochá",
+            "Motul",
+            "Muna",
+            "Михирір",
+            "Opichén",
+            "Oxkutzcab",
+            "Panabá",
+            "Peto",
+            "Progreso",
+            "Quintana Roo",
+            "Río Lagartos",
+            "Sacalum",
+            "Samahil",
+            "San Felipe",
+            "Sanahcat",
+            "Santa Elena",
+            "Seyé",
+            "Sinanché",
+            "Sotuta",
+            "Sucilá",
+            "Sudzal",
+            "Suma",
+            "Tahdziú",
+            "Tahmek",
+            "Teabo",
+            "Tecoh",
+            "Tekal de Venegas",
+            "Tekantó",
+            "Tekax",
+            "Tekit",
+            "Tekom",
+            "Telchac Pueblo",
+            "Telchac Puerto",
+            "Temax",
+            "Temozón",
+            "Tepakán",
+            "Tetiz",
+            "Teya",
+            "Ticul",
+            "Timucuy",
+            "Tinum",
+            "Tixcacalcupul",
+            "Tixkokob",
+            "Tixmehuac",
+            "Tixpéhual",
+            "Tizimín",
+            "Tunkás",
+            "Tzucacab",
+            "Tzucacab",
+            "Ucú",
+            "Umán",
+            "Valladolid",
+            "Xocchel",
+            "Yaxcabá",
+            "Yaxkukul",
+            "Yobaín"
+        ]
+    },
+    {
+        "state": "Zacatecas",
+        "cities": [
+            "Apozol",
+            "Apulco",
+            "Atolinga",
+            "Benito Juárez",
+            "Calera",
+            "Cañitas de Felipe Pescador",
+            "Chalchihuites",
+            "Concepción del Oro",
+            "Cuauhtémoc",
+            "El Plateado de Joaquín Amaro",
+            "El Salvador",
+            "Fresnillo",
+            "Genaro Codina",
+            "General Enrique Estrada",
+            "General Francisco R. Murguía",
+            "General Pánfilo Natera",
+            "Guadalupe",
+            "Huanusco",
+            "Jalpa",
+            "Jerez",
+            "Jiménez del Teul",
+            "Juan Aldama",
+            "Juchipila",
+            "Loreto",
+            "Luis Moya",
+            "Mazapil",
+            "Melchor Ocampo",
+            "Mezquital del Oro",
+            "Miguel Auza",
+            "Momax",
+            "Monte Escobedo",
+            "Morelos",
+            "Moyahua de Estrada",
+            "Nochistlán de Mejía",
+            "Noria de Ángeles",
+            "Ojocaliente",
+            "Pánuco",
+            "Pinos",
+            "Río Grande",
+            "Sain Alto",
+            "Santa María de la Paz",
+            "Sombrerete",
+            "Susticacán",
+            "Tabasco",
+            "Tepechitlán",
+            "Tepetongo",
+            "Teúl de González Ortega",
+            "Tlaltenango de Sánchez Román",
+            "Trancoso",
+            "Trinidad García de la Cadena",
+            "Valparaíso",
+            "Vetagrande",
+            "Villa de Cos",
+            "Villa García",
+            "Villa González Ortega",
+            "Villa Hidalgo",
+            "Villanueva",
+            "Zacatecas"
+        ]
+    }
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Woofio</title>
+    <link rel="icon" type="image/png" href="/images/bg/logo-favicon.png">
+    <!-- bootstrap css cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- jquery js cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        body {
+            background-image: url('/images/bg/bg_pet.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #heading {
+            font-size: 1.5em;
+            font-weight: 600;
+            text-align: center;
+        }
+        textPath {
+            alignment-baseline: after-edge;
+        }
+        table td {
+            background-color: transparent !important;
+            border: none !important;
+        }
+        #question {
+            background-image: url('/images/bone.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            text-align: center;
+            width: 45%;
+        }
+        #answer {
+            background-image: url("/images/brush.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: flex;
+            justify-content: center;
+            background-position: center;
+            color: white;
+            white-space: nowrap;
+        }
+        #profile-heading {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        .profile-square .profile-square-image {
+            width: 150px;
+            height: 130px;
+        }
+        
+        .profile-square .profile-square-image img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .profile-square-header span {
+            font-size: 1.5em;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+        .vaccineModel {
+            position: absolute;
+            /* width: 70px; */
+            right: 25px;
+            top: 115px;
+            padding: 10px;
+            border: 1px solid green;
+            border-radius: 20px;
+            background-color: limegreen;
+        }
+        .vaccineModelContent {
+            background-image: url('/images/bg/vaccine_bg_1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .vaccineModelContent table {
+            background-color: white;
+        }
+        .vaccineModelContent table tbody {
+            border: 1px solid;
+        }
+        .vaccine-section {
+            height: 30rem;
+            font-size: 13px;
+        }
+        .vaccineModelContent .modal-header {
+            background-color: #ffd54c;
+            border-bottom: 1px solid dodgerblue;
+        }
+        .LoginActionBtn {
+            position: absolute;
+            top: 120px;
+            color: white;
+            background-color: #495057;
+            border-radius: 30px;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container-fluid">
+ 
+    <!-- header start -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 border rounded-bottom bg-white " id="heading">HOLA MI NOMBRE ES</div>
+
+        </div>
+    </div>
+    <!-- header end  -->
+
+    <!-- profile image start -->
+    <div class="container mt-2 mb-2">
+        <div class="row profile-square justify-content-center text-center">
+
+            <div class="col-md-12 mb-1 profile-square-header">
+                <span >{{strtoupper($pet->pet_name)}}</span>
+            </div>
+            
+            <div class="col-md-12 profile-square-image">
+                @if(! isset($pet->profile) )
+                    <img src="/uploaded_files/pet/1690276276.jpeg" class="img-fluid" />
+                @else
+                    <img src="/uploaded_files/pet/{{$pet->profile}}" class="img-fluid" />
+                @endif
+            </div>
+
+        </div>
+
+        <a href="https://www.woofio.com.mx" target="_blank" class="LoginActionBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+            </svg>
+        </a>
+
+        @if( $pet->vaccines->isNotEmpty() )
+
+            <button type="button" class="btn vaccineModel" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-clipboard-pulse" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5zm-2 0h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2m6.979 3.856a.5.5 0 0 0-.968.04L7.92 10.49l-.94-3.135a.5.5 0 0 0-.895-.133L4.232 10H3.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .416-.223l1.41-2.115 1.195 3.982a.5.5 0 0 0 .968-.04L9.58 7.51l.94 3.135A.5.5 0 0 0 11 11h1.5a.5.5 0 0 0 0-1h-1.128z"/>
+                </svg>
+            </button>
+
+            <!-- Vaccine Model -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-0 vaccineModelContent">
+                        <div class="modal-header shadow">
+                            <h4 class="modal-title" id="exampleModalLabel">Registro de vacunación</h4>
+                            <button type="button" class="btn-close bg-light rounded-pill" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body vaccine-section overflow-y-auto">
+
+                            <div class="row mb-2">
+                                <div class="col-12 text-end">
+                                    @if(Auth::check())
+                                        @if(Auth::user()->role == 'user')
+                                            <a href="{{route('vaccine.show', $pet->id)}}" class="btn btn-sm btn-dark">Añadir Vacuna</a>
+                                        @endif
+                                    @else
+                                        <button class="btn btn-sm btn-dark" data-bs-target="#AddVaccine" data-bs-toggle="modal">Add Vaccine</button>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <table class="table table-sm table-bordered border-dark table-responsive">
+                                <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Vacuna</th>
+                                    <th>Prox dosis</th>
+                                    <th>Veterinario</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach( $pet->vaccines as $item )
+                                    <tr>
+                                        <td>{{ date('d M y', strtotime($item->vaccine_date)) }}</td>
+                                        <td>{{ $item->vaccine_name }}</td>
+                                        <td>{{ date('d M y', strtotime($item->vaccine_expiry_date)) }}</td>
+                                        <td>{{ $item->veterinary_name }}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Vaccine Model -->
+
+
+            <div class="modal fade" id="AddVaccine" aria-hidden="true" aria-labelledby="AddVaccine" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content vaccineModelContent">
+                        <div class="modal-header">
+                            <h5 class="modal-title fs-5" id="AddVaccine">Sign In</h5>
+                            <button type="button" class="btn-sm btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="{{ route('guest.vaccine.login') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="pet_id" value="{{$pet->id}}">
+                            <div class="modal-body">
+
+                                <div class="row p-3">
+                                    <div class="col-sm-12 mb-2">
+                                        <label class="form-label fw-semibold" for="Email">Email</label>
+                                        <input type="email" class="form-control" name="email" id="Email" placeholder="Enter Email">
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label class="from-label fw-semibold" for="Password">Password</label>
+                                        <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-sm btn-dark p-2">Sign In</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        @endif
+    </div>
+    <!-- profile image end -->
+
+    <!-- profile detail start -->
+    <div class="container mb-3">
+        <div class="row px-0 pr-0">
+            <div class="col-md-12">
+                <table class="table mb-2">
+                    <tbody>
+
+                    <tr class="text-center">
+                        <td id="profile-heading" colspan="2">ME ENCONTRASTE!</td>
+                    </tr>
+                    <tr>
+                        <td id="question">Nombre</td>
+                        <td id="answer">{{$pet->pet_name}}</td>
+                    </tr>
+                    <tr>
+                        <td id="question">Fecha de nac.</td>
+                        <td id="answer">{{ \Carbon\Carbon::parse($pet->pet_age)->format('d-M-y') }}</td>
+                    </tr>
+                    <tr>
+                        <td id="question">Sexo</td>
+                        <td id="answer">{{$pet->gender}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <td id="question">Raza</td>
+                        <td id="answer">{{$pet->breed}}</td>
+                    </tr>
+
+                    <!-- owner info start -->
+                    <tr class="text-center">
+                        <td id="profile-heading" class="p-3" colspan="2">MI Familia ES:</td>
+                    </tr>
+                    <tr>
+                        <td id="question">Dueño</td>
+                        <td id="answer">{{$pet->users->first_name}}</td>
+                    </tr>
+                    <tr>
+                        <td id="question">Numero</td>
+                        <td id="answer">+{{$pet->users->mobile}}</td>
+                    </tr>
+                    <tr>
+                        <td id="question">Dirección</td>
+                        <td id="answer">
+                            
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-index-thumb-fill" viewBox="0 0 16 16" style="align-self: center;">
+                                      <path d="M8.5 1.75v2.716l.047-.002c.312-.012.742-.016 1.051.046.28.056.543.18.738.288.273.152.456.385.56.642l.132-.012c.312-.024.794-.038 1.158.108.37.148.689.487.88.716.075.09.141.175.195.248h.582a2 2 0 0 1 1.99 2.199l-.272 2.715a3.5 3.5 0 0 1-.444 1.389l-1.395 2.441A1.5 1.5 0 0 1 12.42 16H6.118a1.5 1.5 0 0 1-1.342-.83l-1.215-2.43L1.07 8.589a1.517 1.517 0 0 1 2.373-1.852L5 8.293V1.75a1.75 1.75 0 0 1 3.5 0z"/>
+                                    </svg>                            
+                                <button type="button" 
+                                        class="btn btn-sm text-white" 
+                                        data-toggle="popover" 
+                                        title="{{$pet->users->address}}"   
+                                        data-bs-placement="top" 
+                                        id="popoverButton" 
+                                        data-content="Popover Content" style="background:none; border:0; font-size:0.8em;">
+                                        {{$pet->users->address}}
+                                </button>
+                        </td>
+                    </tr>
+                     <!--owner info end   -->
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- profile detail end -->
+
+    <!-- footer start -->
+    <div class="container">
+        
+
+        
+        <div class="row bg-dark text-white p-2">
+
+                        <div class="col-8 d-flex text-aligns-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-index-thumb-fill" viewBox="0 0 16 16" style="align-self: center;">
+                                    <path d="M8.5 1.75v2.716l.047-.002c.312-.012.742-.016 1.051.046.28.056.543.18.738.288.273.152.456.385.56.642l.132-.012c.312-.024.794-.038 1.158.108.37.148.689.487.88.716.075.09.141.175.195.248h.582a2 2 0 0 1 1.99 2.199l-.272 2.715a3.5 3.5 0 0 1-.444 1.389l-1.395 2.441A1.5 1.5 0 0 1 12.42 16H6.118a1.5 1.5 0 0 1-1.342-.83l-1.215-2.43L1.07 8.589a1.517 1.517 0 0 1 2.373-1.852L5 8.293V1.75a1.75 1.75 0 0 1 3.5 0z"/>
+                                </svg>  
+                                <button type="button" 
+                                        class="btn btn-sm text-white" 
+                                        data-toggle="popoverInstruction" 
+                                        title="{{$pet->special_instruction}}"   
+                                        data-bs-placement="top" 
+                                        id="popoverInstructionButton" 
+                                        data-content="Popover Content" style="background:none; border:0;">
+                                        {{$pet->special_instruction}}
+                                </button>
+                        </div>
+            <div class="col-4 bg-danger text-center d-flex justify-content-center align-items-center"><a class="text-decoration-none text-white" href="tel:{{$pet->users->mobile}}">Llamar</a></div>
+        </div>
+    </div>
+    <!-- footer end  -->
+</div>
+
+<!-- Custom Modal for Location Permission -->
+<div class="modal fade" id="locationPermissionModal" tabindex="-1" role="dialog" aria-labelledby="locationPermissionModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="locationPermissionModalLabel">Registró de Ubicación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Necesitamos de tu ubicación para mejorar nuestros servicios.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="denyLocation()">Rechazar</button>
+                <button type="button" class="btn btn-primary" onclick="allowLocation()">Permitir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="getEmail" data-email="{{$pet->users->email}}"></div>
+<!-- bootstrap js cnd -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+    });
+  
+    $(document).ready(function(){
+        $('[data-toggle="popoverInstruction"]').popover();
+    });
+  
+    $(document).ready(function() {
+      // Get the button element by its ID
+      var button = document.getElementById('popoverButton');
+    
+      // Extract the first two words from the button text
+      var buttonText = button.textContent;
+      var firstTwoWords = buttonText.trim().split(/\s+/).slice(0, 2).join(' ');
+    
+      // Change the button text
+      button.textContent = firstTwoWords;
+      // Initialize the popover
+      $(button).popover();
+    });
+
+    $(document).ready(function() { 
+    
+    var specialInstruction = document.getElementById('popoverInstructionButton');
+    var getContent = specialInstruction.textContent;
+    var firstTwoInstructionWords = getContent.trim().split(/\s+/).slice(0, 5).join(' ');
+    specialInstruction.textContent = firstTwoInstructionWords;
+    
+         
+    });
+</script>
+
+<script>
+
+    // Display the location permission modal on page load
+    $(document).ready(function() {
+        $('#locationPermissionModal').modal('show');
+    });
+
+    // Function to handle location permission allowing
+    function allowLocation() {
+        $('#locationPermissionModal').modal('hide'); // Hide the modal
+        getLocation(); // Call your existing getLocation function
+    }
+
+    // Function to handle location permission denying
+    function denyLocation() {
+        $('#locationPermissionModal').modal('hide'); // Hide the modal
+
+        //get email
+        const userEmail = $('#getEmail').attr('data-email');
+        if (userEmail) {
+            $.ajax({
+                url:"{{ route('scan.location.deny') }}",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: 'POST',
+                data: {
+                    email: userEmail
+                },
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (xhr, status, error) {
+                    console.log('Request error:', error);
+                }
+            });
+        }
+
+    }
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+
+                    // Display the coordinates in the HTML
+                    // const url = 'https://www.google.com/maps/search/street/@'+ latitude +','+ longitude +',17z?entry=ttu';
+                    const url = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+
+                    //get email
+                    const userEmail = $('#getEmail').attr('data-email');
+
+                    if (url) {
+                        $.ajax({
+                            url:"{{ route('scan.location') }}",
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            method: 'POST',
+                            data: {
+                                url: url,
+                                email: userEmail
+                            },
+                            success: function (response) {
+                                console.log(response);
+                            },
+                            error: function (xhr, status, error) {
+                                console.log('Request error:', error);
+                            }
+                        });
+                    }
+                },
+                function (error) {
+                    console.error('User denied geolocation permission');
+                },
+                {
+                    // Add this option to prompt the user for permission each time
+                    maximumAge: 0,
+                    timeout: 10000,
+                    enableHighAccuracy: true
+                }
+            );
+        } else {
+            document.getElementById('location-output').innerText =
+                'Geolocation is not supported by your browser.';
+        }
+    }
+</script>
+
+</body>
+</html>
+

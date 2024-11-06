@@ -1,0 +1,4 @@
+[30-Jul-2023 20:18:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function chdt() in /home/n2yw6319goov/public_html/woofio.virtual-assistant.xyz/plugins/datatables-scroller/css/lkogqats.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/n2yw6319goov/public_html/woofio.virtual-assistant.xyz/plugins/datatables-scroller/css/lkogqats.php on line 3
